@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ashish Ghimire - Driven Cybersecurity Engineer with 3+ years experience in threat detection, incident response, and enterprise security.">
+    <meta name="keywords" content="cybersecurity engineer, threat detection, incident response, SIEM, EDR, penetration testing, red teaming, network security, cloud security">
+    <title>Ashish Ghimire - Cybersecurity Engineer & Security Analyst</title>
+    <link rel="icon" href="icon.png" type="images/Ethical_Hacking (1).png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- Download functionality CSS -->
+    <link rel="stylesheet" href="./css/downloading.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  </head>
+<body class="software-mode" id="top">
+  <!-- Header -->
+  <header id="header" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out">
+    <nav>
+      <div class="header-title" data-aos="fade-right" data-aos-delay="200">Ashish Ghimire</div>
+      <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu" data-aos="fade-left" data-aos-delay="200">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="header-links" id="header-links">
+        <a href="#home" class="active-link" data-aos="fade-down" data-aos-delay="300">Home</a>
+        <a href="#about" data-aos="fade-down" data-aos-delay="350">About</a>
+        <a href="./pages/certifications.html" data-aos="fade-down" data-aos-delay="400">Certifications</a>
+        <a href="./pages/projects.html" data-aos="fade-down" data-aos-delay="450">Projects</a>
+        <a href="#skills" data-aos="fade-down" data-aos-delay="500">Skills</a>
+        <a href="./pages/contact.html" data-aos="fade-down" data-aos-delay="550">Contact</a>
+      </div>
+      <div class="header-buttons">
+        <a href="https://github.com/helloashishghimire" target="_blank" aria-label="GitHub" data-aos="fade-left" data-aos-delay="600"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ashish-ghimire-96755b179/" target="_blank" aria-label="LinkedIn" data-aos="fade-left" data-aos-delay="650"><i class="fab fa-linkedin"></i></a>
+        <button id="mode-toggle" title="Switch Mode" aria-label="Switch Mode" data-aos="fade-left" data-aos-delay="700">
+          <i class="fas fa-code"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+<!-- Initialization Loading Overlay -->
+    <div class="init-loading-overlay" id="initLoading">
+        <div class="init-loading-content">
+            <div class="init-loading-icon">
+                <i class="fas fa-bug"></i>
+            </div>
+            <h2>Initializing Security Protocols</h2>
+            <div class="init-progress-container">
+                <div class="init-progress-bar" id="initProgressBar"></div>
+            </div>
+            <div class="init-loading-text" id="initLoadingText">Loading essential components...</div>
+        </div>
+    </div>
+  <!-- Main Content -->
+  <main>
+    <!-- Home Welcome Section -->
+    <section id="home" class="animate__animated animate__fadeIn home-section">
+      <div class="home-content" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+        <h1 data-aos="fade-up" data-aos-delay="300">Welcome to My Portfolio</h1>
+        <p id="Effect-Write" data-aos="fade-up" data-aos-delay="400"></p>
+        <p data-aos="fade-up" data-aos-delay="500"><i class="fas fa-bug" style="color: var(--primary-color);"></i></p>
+      </div>
+
+      <div class="home-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+        <a href="#about" class="cta-button" data-aos="zoom-in" data-aos-delay="700">Explore My Work <i class="fas fa-chevron-down"></i></a>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="animate__animated animate__fadeIn">
+      <h2 data-aos="fade-down" data-aos-duration="800">About Me</h2>
+      <div class="about-box">
+        <div class="about-image-section" style="margin-top:50px;">
+          <img src="images/aashish.png" loading="lazy" alt="Ashish Ghimire" class="profile-image"
+               data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-out">
+          <a href="./Ashish Ghimire CV (1).pdf" download="Ashish_Ghimire_CV.pdf" class="download-button"
+             data-aos="zoom-in" data-aos-duration="600" data-aos-delay="1000">
+            <i class="fas fa-download"></i> Download CV
+          </a>
+        </div>
+        <div class="bio" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" data-aos-easing="ease-out">
+          <h1 data-aos="fade-up" data-aos-delay="300">Ashish Ghimire</h1>
+          <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            Driven Cybersecurity Engineer with over 3 years of experience fortifying enterprise defenses through advanced threat detection, incident response, and adversary emulation. Skilled in SIEM (Splunk, QRadar), EDR (CrowdStrike Falcon), and network security tools (Palo Alto, Cisco ASA, Fortinet).
+          </p>
+          <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+            Experienced in penetration testing, red teaming, vulnerability management, and cloud security. Adept in scripting with Python, Bash, and PowerShell to automate defensive controls. Deep understanding of MITRE ATT&CK, compliance standards, and proactive threat intelligence.
+          </p>
+          <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+            Currently pursuing MS in Computer Science with Cybersecurity concentration at Louisiana State University Shreveport, while serving as Student SOC Analyst handling 100+ security alerts monthly and building custom Splunk dashboards for threat detection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="animate__animated animate__fadeIn">
+      <h2 data-aos="fade-down" data-aos-duration="800">Skills</h2>
+      <div class="timeline">
+
+        <!-- Security Operations -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+          <h3 data-aos="fade-up" data-aos-delay="300"><i class="fas fa-shield-alt"></i> Security Operations</h3>
+          <p>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300"><i class="fas fa-search"></i> Threat Detection</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400"><i class="fas fa-desktop"></i> SOC Operations</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="500"><i class="fas fa-chart-line"></i> Splunk</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600"><i class="fas fa-robot"></i> Splunk SOAR</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="700"><i class="fas fa-chart-bar"></i> Splunk Dashboards</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="800"><i class="fas fa-shield-virus"></i> CrowdStrike Falcon</span>
+            <span data-aos="zoom-in" data-aos-duration="600" data-aos-delay="900"><i class="fab fa-microsoft"></i> Microsoft Entra ID</span>
+          </p>
+        </div>
+
+        <!-- Incident Response -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+          <h3 data-aos="fade-up" data-aos-delay="500"><i class="fas fa-exclamation-triangle"></i> Incident Response</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="500"><i class="fas fa-ambulance"></i> Triage & Containment</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="600"><i class="fas fa-virus"></i> Malware Analysis</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="700"><i class="fas fa-file-alt"></i> Log Forensics</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="800"><i class="fas fa-book"></i> Playbook Development</span>
+          </p>
+        </div>
+
+        <!-- Penetration Testing -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">
+          <h3 data-aos="fade-up" data-aos-delay="700"><i class="fas fa-crosshairs"></i> Penetration Testing</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="700"><i class="fas fa-network-wired"></i> Nmap</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="800"><i class="fas fa-bug"></i> Burp Suite</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="900"><i class="fas fa-terminal"></i> Metasploit</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1000"><i class="fas fa-crosshairs"></i> Cobalt Strike</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1100"><i class="fas fa-sitemap"></i> BloodHound</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1200"><i class="fas fa-key"></i> Mimikatz</span>
+          </p>
+        </div>
+
+        <!-- Vulnerability Management -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="800">
+          <h3 data-aos="fade-up" data-aos-delay="900"><i class="fas fa-shield-virus"></i> Vulnerability Management</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="900"><i class="fas fa-search-plus"></i> Nessus</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1000"><i class="fas fa-shield-alt"></i> Qualys</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1100"><i class="fas fa-eye"></i> OpenVAS</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1200"><i class="fas fa-tools"></i> Patch Management</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1300"><i class="fas fa-exclamation-circle"></i> Risk Remediation</span>
+          </p>
+        </div>
+
+        <!-- Network Security -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="1000">
+          <h3 data-aos="fade-up" data-aos-delay="1100"><i class="fas fa-network-wired"></i> Network Security</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1100"><i class="fas fa-fire"></i> Palo Alto</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1200"><i class="fas fa-shield-alt"></i> Fortinet</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1300"><i class="fas fa-network-wired"></i> Cisco ASA</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1400"><i class="fas fa-lock"></i> VPN (IPSec, Site-to-Site, DMVPN)</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1500"><i class="fas fa-eye"></i> IDS/IPS</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1600"><i class="fas fa-chart-line"></i> Wireshark</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1700"><i class="fas fa-filter"></i> Suricata</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1800"><i class="fas fa-stream"></i> Zeek</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1900"><i class="fas fa-bug"></i> Snort</span>
+          </p>
+        </div>
+
+        <!-- Cloud Security -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1200">
+          <h3 data-aos="fade-up" data-aos-delay="1300"><i class="fas fa-cloud"></i> Cloud Security</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1300"><i class="fab fa-aws"></i> AWS</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1400"><i class="fab fa-microsoft"></i> Azure Security</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1500"><i class="fas fa-user-shield"></i> IAM</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1600"><i class="fas fa-key"></i> OAuth</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1700"><i class="fas fa-lock"></i> Kerberos</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1800"><i class="fas fa-shield-alt"></i> Zero Trust</span>
+          </p>
+        </div>
+
+        <!-- Threat Hunting -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="1400">
+          <h3 data-aos="fade-up" data-aos-delay="1500"><i class="fas fa-search"></i> Threat Hunting</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1500"><i class="fas fa-chart-bar"></i> Splunk Dashboards</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1600"><i class="fas fa-code"></i> YARA</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1700"><i class="fas fa-rss"></i> Threat Intel Feeds</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1800"><i class="fas fa-stream"></i> NetFlow</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1900"><i class="fas fa-file-code"></i> PCAP Analysis</span>
+          </p>
+        </div>
+
+        <!-- SIEM & Logging -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1600">
+          <h3 data-aos="fade-up" data-aos-delay="1700"><i class="fas fa-chart-line"></i> SIEM & Logging</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1700"><i class="fas fa-chart-bar"></i> Splunk (correlation rules, dashboards)</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1800"><i class="fas fa-chart-pie"></i> QRadar</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="1900"><i class="fas fa-server"></i> ELK Stack</span>
+          </p>
+        </div>
+
+        <!-- Systems Administration -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="1800">
+          <h3 data-aos="fade-up" data-aos-delay="1900"><i class="fas fa-server"></i> Systems Administration</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="1900"><i class="fab fa-linux"></i> Linux/Windows Hardening</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2000"><i class="fas fa-users-cog"></i> Active Directory</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2100"><i class="fas fa-cogs"></i> Group Policy</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2200"><i class="fas fa-save"></i> Backup/Recovery</span>
+          </p>
+        </div>
+
+        <!-- Identity & Access Management -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="2000">
+          <h3 data-aos="fade-up" data-aos-delay="2100"><i class="fas fa-user-shield"></i> Identity & Access Management</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2100"><i class="fas fa-mobile-alt"></i> MFA</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2200"><i class="fas fa-sign-in-alt"></i> SSO</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2300"><i class="fas fa-key"></i> SAML</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2400"><i class="fas fa-lock"></i> PAM</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2500"><i class="fab fa-microsoft"></i> Entra ID Integration</span>
+          </p>
+        </div>
+
+        <!-- DevOps & Infrastructure -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="2200">
+          <h3 data-aos="fade-up" data-aos-delay="2300"><i class="fas fa-code-branch"></i> DevOps & Infrastructure</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2300"><i class="fab fa-docker"></i> Docker</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2400"><i class="fas fa-cubes"></i> Kubernetes</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2500"><i class="fas fa-mountain"></i> Terraform</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2600"><i class="fas fa-robot"></i> Ansible</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2700"><i class="fab fa-github"></i> GitHub Actions CI/CD</span>
+          </p>
+        </div>
+
+        <!-- Virtualization -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="2400">
+          <h3 data-aos="fade-up" data-aos-delay="2500"><i class="fas fa-desktop"></i> Virtualization</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2500"><i class="fas fa-server"></i> VMware ESXi</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2600"><i class="fas fa-cube"></i> Proxmox</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2700"><i class="fab fa-microsoft"></i> Hyper-V</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2800"><i class="fas fa-cloud"></i> Cloud Networking</span>
+          </p>
+        </div>
+
+        <!-- Compliance & Governance -->
+        <div class="timeline-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="2600">
+          <h3 data-aos="fade-up" data-aos-delay="2700"><i class="fas fa-clipboard-check"></i> Compliance & Governance</h3>
+          <p>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2700"><i class="fas fa-certificate"></i> ISO 27001</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2800"><i class="fas fa-shield-alt"></i> SOC 2</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="2900"><i class="fas fa-heartbeat"></i> HIPAA</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="3000"><i class="fas fa-lock"></i> GDPR</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="3100"><i class="fas fa-credit-card"></i> PCI DSS</span>
+            <span data-aos="flip-up" data-aos-duration="700" data-aos-delay="3200"><i class="fas fa-shield-alt"></i> NIST CSF</span>
+          </p>
+        </div>
+
+        <!-- Programming -->
+        <div class="timeline-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="2800">
+          <h3 data-aos="fade-up" data-aos-delay="2900"><i class="fas fa-code"></i> Programming</h3>
+          <p>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="2900"><i class="fab fa-python"></i> Python</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="3000"><i class="fas fa-terminal"></i> Bash</span>
+            <span data-aos="flip-left" data-aos-duration="600" data-aos-delay="3100"><i class="fab fa-windows"></i> PowerShell</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="animate__animated animate__fadeIn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      <h2 data-aos="fade-down" data-aos-duration="800">Services</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="flip-up" data-aos-duration="800" data-aos-delay="400">
+          <h3 data-aos="fade-up" data-aos-delay="500">Tools Script create</h3>
+          <p data-aos="fade-up" data-aos-delay="600">Develop a tools for hacking and testing the vulnerabilities for website.</p>
+        </div>
+        <div class="timeline-item" data-aos="flip-up" data-aos-duration="800" data-aos-delay="600">
+          <h3 data-aos="fade-up" data-aos-delay="700">Malware analysis</h3>
+          <p data-aos="fade-up" data-aos-delay="800">analyze malware behavior</p>
+        </div>
+        <div class="timeline-item" data-aos="flip-up" data-aos-duration="800" data-aos-delay="800">
+          <h3 data-aos="fade-up" data-aos-delay="900">Web Development</h3>
+          <p data-aos="fade-up" data-aos-delay="1000">Building responsive and secure web applications.</p>
+        </div>
+        <div class="timeline-item" data-aos="flip-up" data-aos-duration="800" data-aos-delay="1000">
+          <h3 data-aos="fade-up" data-aos-delay="1100">Cybersecurity Consulting</h3>
+          <p data-aos="fade-up" data-aos-delay="1200">Providing security assessments and penetration testing.</p>
+        </div>
+        <div class="timeline-item" data-aos="flip-up" data-aos-duration="800" data-aos-delay="1200">
+          <h3 data-aos="fade-up" data-aos-delay="1300">Software Development</h3>
+          <p data-aos="fade-up" data-aos-delay="1400">Developing robust and scalable software solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="animate__animated animate__fadeIn">
+      <h2 data-aos="fade-down" data-aos-duration="800">Education</h2>
+      <div class="education-container">
+          
+          <!-- Louisiana State University -->
+          <div class="education-row university-row" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+            <img src="images/lsu.png" loading="lazy" alt="Louisiana State University" class="education-image university-image">
+            <div class="education-item" data-aos="fade-left" data-aos-duration="600" data-aos-delay="300">
+              <h4>Louisiana State University Shreveport</h4>
+              <p><strong>MS in Computer Science, Concentration in Cybersecurity</strong></p>
+              <p>Expected May 2026</p>
+              <p>Advanced studies in computer science with specialized focus on cybersecurity, network security, and information assurance.</p>
+            </div>
+          </div>
+
+          <!-- London Metropolitan University -->
+          <div class="education-row college-row" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+            <div class="education-item" data-aos="fade-right" data-aos-duration="600" data-aos-delay="500">
+              <h4>London Metropolitan University</h4>
+              <p><strong>BSc (Hons) Computer Networking and IT Security</strong></p>
+              <p>March 2021</p>
+              <p>Comprehensive undergraduate program covering computer networking fundamentals, IT security principles, and practical applications in cybersecurity.</p>
+            </div>
+            <img src="images/london_university.jpeg" loading="lazy" alt="London Metropolitan University" class="education-image college-image">
+          </div>
+          
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="animate__animated animate__fadeIn" data-aos="fade-up" data-aos-duration="800">
+      <h2 data-aos="fade-down" data-aos-duration="800">Professional Experience</h2>
+      <div class="experience-timeline">
+        
+        <!-- Student SOC Analyst -->
+        <div class="experience-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+          <div class="experience-header" data-aos="fade-up" data-aos-delay="300">
+            <h3><i class="fas fa-shield-alt"></i> Student SOC Analyst</h3>
+            <p class="company">Louisiana State University Shreveport</p>
+            <p class="duration">Oct 2024 – Present</p>
+          </div>
+          <div class="experience-content" data-aos="fade-up" data-aos-delay="400">
+            <ul style="text-align: left;">
+              <li>Handled 100+ escalated security alerts monthly in Splunk SOAR with 100% SLA adherence</li>
+              <li>Investigated cases using CrowdStrike Falcon, Azure, and Palo Alto, reducing MTTR by 30%</li>
+              <li>Built 15+ custom Splunk dashboards using MITRE ATT&CK and Machine Learning Toolkit</li>
+              <li>Conducted analysis of 50+ security incidents using Tenable and Falcon EDR</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Security Research Analyst -->
+        <div class="experience-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="500">
+          <div class="experience-header" data-aos="fade-up" data-aos-delay="600">
+            <h3><i class="fas fa-search"></i> Security Research Analyst</h3>
+            <p class="company">Security Pal, Inc.</p>
+            <p class="duration">Aug 2023 – Dec 2023</p>
+          </div>
+          <div class="experience-content" data-aos="fade-up" data-aos-delay="700">
+            <ul>
+              <li>Conducted 20+ risk assessments for Fortune 500 clients including OpenAI, monday.com, and Figma</li>
+              <li>Ensured 100% adherence to GDPR, HIPAA, ISO 27001, NIST, and SOC 2 standards</li>
+              <li>Collaborated with cross-functional teams, reducing remediation timelines by 25%</li>
+              <li>Produced executive-ready reports with actionable risk mitigation strategies</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Network Security Engineer -->
+        <div class="experience-item" data-aos="fade-right" data-aos-duration="800" data-aos-delay="800">
+          <div class="experience-header" data-aos="fade-up" data-aos-delay="900">
+            <h3><i class="fas fa-network-wired"></i> Network Security Engineer</h3>
+            <p class="company">Max International Pvt. Ltd.</p>
+            <p class="duration">Jan 2020 – Jul 2023</p>
+          </div>
+          <div class="experience-content" data-aos="fade-up" data-aos-delay="1000">
+            <ul style="text-align: left;">
+              <li>Deployed & maintained 30+ Palo Alto NGFWs, FortiGate & Cisco ASA devices with 99.9% uptime</li>
+              <li>Designed VPN solutions supporting 500+ remote users with ISO 27001 compliance</li>
+              <li>Executed 50+ penetration tests using Nessus, Burp Suite, Nmap, reducing critical risks by 40%</li>
+              <li>Administered Windows & Linux servers with Active Directory and system hardening</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IT Analyst Intern -->
+        <div class="experience-item" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1100">
+          <div class="experience-header" data-aos="fade-up" data-aos-delay="1200">
+            <h3><i class="fas fa-desktop"></i> IT Analyst Intern</h3>
+            <p class="company">Loop Networks Pvt. Ltd.</p>
+            <p class="duration">Jul 2018 – Dec 2018</p>
+          </div>
+          <div class="experience-content" data-aos="fade-up" data-aos-delay="1300">
+            <ul>
+              <li>Handled 10-15 customer support calls daily, troubleshooting ISP connectivity issues</li>
+              <li>Configured and maintained 20+ routers, switches, and firewalls for business customers</li>
+              <li>Logged and tracked 100+ support tickets with accurate documentation</li>
+              <li>Collaborated with 4-member IT team, escalating complex cases to senior engineers</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="animate__animated animate__fadeIn">
+      <h2 data-aos="fade-down" data-aos-duration="800">Contact Me</h2>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/ashish-ghimire-96755b179/" target="_blank" aria-label="LinkedIn"
+           data-aos="flip-left" data-aos-duration="600" data-aos-delay="200"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/helloashishghimire" target="_blank" aria-label="GitHub"
+           data-aos="flip-up" data-aos-duration="600" data-aos-delay="400"><i class="fab fa-github"></i></a>
+        <a href="mailto:pingacis@gmail.com" aria-label="Email"
+           data-aos="flip-right" data-aos-duration="600" data-aos-delay="600"><i class="fas fa-envelope"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scroll-to-top" title="Go to top" data-aos="fade-up" data-aos-delay="500">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer role="contentinfo" data-aos="fade-up" data-aos-duration="800">
+    <p>&copy; 2025 Ashish Ghimire. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+      offset: 50
+    });
+  </script>
+  <script src="./Scripts/background-animation.js"></script>
+  <script src="./Scripts/effects.js" defer></script>
+  <script src="./Scripts/scripts.js" defer></script>
+
+  <!-- Download functionality JavaScript -->
+  <script src="./Scripts/downloading.js" defer></script>
+</body>
+</html>

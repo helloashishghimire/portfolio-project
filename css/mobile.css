@@ -1,0 +1,528 @@
+/* Enhanced Mobile Responsiveness */
+
+/* Extra Small Devices (phones, 480px and down) */
+@media screen and (max-width: 480px) {
+  /* General padding adjustments */
+  #skills, #services, #education, #activities, #experience {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  /* Header section adjusted */
+  #header {
+    padding: 8px 15px;
+    min-height: 50px;
+  }
+  
+  /* Section headers */
+  #skills h2, #services h2, #education h2, #activities h2, #experience h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Typography adjustments */
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  /* About section for extra small devices */
+  .about-box {
+    padding: 1rem;
+    margin: 0 0.25rem;
+    width: calc(100% - 0.5rem);
+    box-sizing: border-box;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 180px;
+  }
+  
+  .download-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Ensure bio text is centered on extra small devices */
+  .bio {
+    text-align: center !important;
+  }
+  
+  .bio h1 {
+    text-align: center !important;
+  }
+  
+  .bio p {
+    text-align: center !important;
+  }
+  
+  /* Education for extra small devices */
+  .education-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .education-item h4 {
+    font-size: 1rem;
+  }
+  
+  .education-item p {
+    font-size: 0.85rem;
+  }
+  
+  /* Skills for extra small devices */
+  .timeline-item {
+    padding: 0.75rem;
+  }
+  
+  .timeline-item h4 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-item p {
+    font-size: 0.8rem;
+  }
+  
+  /* Experience for extra small devices */
+  .experience-item {
+    padding: 0.75rem;
+  }
+  
+  .experience-header h4 {
+    font-size: 1rem;
+  }
+  
+  .experience-content li {
+    font-size: 0.8rem;
+  }
+  
+  /* Hero section for extra small devices */
+  #home {
+    padding: 60px 0.5rem 40px 0.5rem;
+  }
+  
+  .home-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .home-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Devices (phones, 481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* General padding adjustments */
+  #skills, #services, #education, #activities, #experience {
+    padding: 2rem 1rem;
+  }
+  
+  /* Header section adjusted */
+  #header {
+    padding: 10px 20px;
+  }
+  
+  /* Section headers */
+  #skills h2, #services h2, #education h2, #activities h2, #experience h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* Medium Devices (tablets, 769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* General padding adjustments */
+  #skills, #services, #education, #activities, #experience {
+    padding: 3rem 2rem;
+  }
+  
+  /* Section headers */
+  #skills h2, #services h2, #education h2, #activities h2, #experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Mobile and Tablet Common Styles */
+@media screen and (max-width: 768px) {
+  /* Improve touch interaction */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Better scrolling on mobile */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure proper touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent horizontal scrolling */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure all containers fit within viewport */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Hero section mobile adjustments */
+  #home {
+    padding: 80px 1rem 60px 1rem;
+    min-height: 100vh;
+  }
+  
+  .home-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .home-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* About section mobile adjustments */
+  .about-box {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    text-align: center;
+    margin: 0 0.5rem;
+    width: calc(100% - 1rem);
+    box-sizing: border-box;
+  }
+  
+  .about-image-section {
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  
+  .profile-image.animate {
+    transform: scale(1.05);
+  }
+  
+  .bio {
+    text-align: center !important;
+    flex: 1;
+    max-width: none;
+  }
+  
+  .bio h1 {
+    text-align: center !important;
+  }
+  
+  .bio p {
+    text-align: center !important;
+  }
+  
+  .download-button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Timeline adjustments */
+  .timeline::before {
+    left: 15px;
+  }
+  
+  .timeline-item {
+    margin-left: 40px;
+    padding: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    left: -25px;
+    width: 15px;
+    height: 15px;
+  }
+  
+  /* Skills adjustments */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .timeline-item::before {
+    left: 15px;
+    right: auto;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .timeline-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-item p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  /* Experience adjustments */
+  .experience-timeline {
+    padding: 0 1rem;
+  }
+  
+  .experience-item {
+    width: 100% !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .experience-item::before {
+    left: 15px !important;
+    right: auto !important;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .experience-header {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience-header h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .company {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .duration {
+    font-size: 0.8rem;
+  }
+  
+  .experience-content {
+    padding: 1rem;
+  }
+  
+  .experience-content ul {
+    padding-left: 1rem;
+  }
+  
+  .experience-content li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Contact section */
+  .contact-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-icons a {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Education section mobile adjustments */
+  .education-container {
+    padding: 0 1rem;
+  }
+  
+  .education-row {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .education-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem auto;
+    order: -1;
+  }
+  
+  .education-item {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    max-width: none;
+  }
+  
+  .education-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .education-item p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Adjust grid layouts */
+  .project-grid, .certificate-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Header adjustments */
+  .header-links a {
+    padding: 12px 0;
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  /* Fix header button positioning */
+  .header-buttons {
+    margin-right: 10px;
+    gap: 10px;
+  }
+  
+  /* Ensure menu icon is properly displayed */
+  .menu-icon {
+    display: block;
+  }
+  
+  /* Typography adjustments */
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Add specific styles for landscape orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .about-box {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 150px;
+    margin: 0 15px 0 0;
+  }
+  
+  html[dir="rtl"] .profile-image {
+    margin: 0 0 0 15px;
+  }
+  
+  .bio {
+    text-align: left;
+    flex: 1;
+  }
+  
+  html[dir="rtl"] .bio {
+    text-align: right;
+  }
+  
+  /* Adjust menu positioning in landscape */
+  .header-links {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  
+  /* Reduce section padding in landscape */
+  #skills, #services, #education, #activities, #experience {
+    padding: 30px 5%;
+  }
+}
+
+/* Medium screens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #skills, #services, #education, #activities, #experience {
+    padding: 3rem 2rem;
+  }
+  
+  .project-grid, .certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-box {
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+  
+  .profile-image {
+    width: 250px;
+    height: 300px;
+  }
+  
+  .timeline-item {
+    padding: 1.75rem;
+  }
+  
+  .experience-item {
+    width: 48%;
+  }
+}

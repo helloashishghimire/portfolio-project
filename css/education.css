@@ -1,0 +1,158 @@
+
+/* Education Section */
+#education {
+    position: relative;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+/* Floating Content Box with Image */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-background);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    gap: 2rem;
+}
+
+/* Education Row Layout */
+.education-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+}
+
+/* University Row: Image Left, Content Right */
+.university-row {
+    flex-direction: row;
+}
+
+/* College Row: Content Left, Image Right */
+.college-row {
+    flex-direction: row-reverse;
+}
+
+/* Education Images */
+.education-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--primary-color);
+    flex-shrink: 0;
+}
+
+.university-image {
+    border-color: var(--primary-color);
+}
+
+.college-image {
+    border-color: var(--accent-color);
+}
+
+/* Education Item Content */
+.education-item {
+    flex: 0 0 60%;
+    text-align: left;
+    padding: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    max-width: 500px;
+}
+
+.education-item h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.education-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.education-item p strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.education-item:hover {
+    background: rgba(0, 212, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .education-container {
+        padding: 2rem;
+    }
+
+    .education-row {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .education-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    .education-item {
+        flex: 1;
+        text-align: center;
+        padding: 1.5rem;
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .education-container {
+        padding: 1.5rem;
+    }
+
+    .education-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .education-item {
+        padding: 1rem;
+    }
+
+    .education-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .education-item p {
+        font-size: 0.9rem;
+    }
+}
+
+
