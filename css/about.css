@@ -46,17 +46,18 @@
 .about-box {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
     background: var(--card-background);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(15px);
     transition: transform 0.4s ease, flex-direction 0.5s ease;
     position: relative;
     z-index: 1;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
+    width: 95%;
 }
 
 .about-image-section {
@@ -78,19 +79,19 @@
     );
     border-radius: var(--border-radius);
     overflow: hidden;
-    padding: 80px 10%;
+    padding: 80px 5%;
 }
 
 /* Mobile responsiveness for About section */
 @media screen and (max-width: 768px) {
     #about {
-        padding: 60px 5%;
+        padding: 60px 3%;
     }
 }
 
 @media screen and (max-width: 480px) {
     #about {
-        padding: 40px 3%;
+        padding: 40px 2%;
     }
 }
 
@@ -140,8 +141,9 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 600px;
-    padding-left: 2rem;
+    max-width: 700px;
+    padding-left: 1rem;
+    min-width: 0;
 }
 
 .bio h1 {
@@ -210,9 +212,10 @@
     .about-box {
         flex-direction: column;
         text-align: center;
-        padding: 2rem 5%;
+        padding: 1.5rem 3%;
         gap: 2.5rem;
         max-width: 100%;
+        width: 95%;
         margin: 0 auto;
     }
     
@@ -288,9 +291,10 @@
 /* Additional responsive fixes */
 @media (max-width: 480px) {
     .about-box {
-        padding: 1.5rem 3%;
+        padding: 1rem 2%;
         gap: 2rem;
         max-width: 100%;
+        width: 95%;
     }
     
     .profile-image {
