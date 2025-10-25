@@ -197,23 +197,47 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(30, 30, 47, 0.7), rgba(30, 30, 47, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat fixed;
+    background-color: #1e1e2f; /* Fallback background color */
+    background-image: 
+        linear-gradient(rgba(30, 30, 47, 0.6), rgba(30, 30, 47, 0.7)),
+        url('../images/cybersecurity.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
-    padding: 80px 20px 60px;
-    margin-top: 0;
+    padding: 120px 20px 60px; /* Increased top padding to account for navbar */
+    margin-top: -60px; /* Negative margin to extend behind navbar */
+    padding-top: 180px; /* Extra padding to compensate for navbar */
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
 }
 
+/* Add subtle overlay for better text readability */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 184, 148, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .home-content {
     max-width: 900px;
-    z-index: 2;
+    z-index: 3;
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    position: relative;
 }
 
 .home-content h1 {
@@ -308,8 +332,11 @@
     }
     
     #home {
-        padding: 60px 15px 40px;
+        padding: 100px 15px 40px;
+        padding-top: 160px; /* Adjust for mobile navbar */
         min-height: 100vh;
+        background-attachment: scroll; /* Better performance on mobile */
+        margin-top: -60px; /* Maintain negative margin for mobile */
     }
     
     .home-content {
@@ -332,8 +359,11 @@
 
 @media (max-width: 480px) {
     #home {
-        padding: 50px 10px 30px;
+        padding: 80px 10px 30px;
+        padding-top: 140px; /* Adjust for smaller mobile navbar */
         min-height: 100vh;
+        background-attachment: scroll; /* Better performance on mobile */
+        margin-top: -50px; /* Adjust for smaller navbar height */
     }
     
     .home-content h1 {

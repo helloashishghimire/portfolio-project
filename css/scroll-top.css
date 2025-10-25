@@ -29,21 +29,21 @@
 /* Mobile responsiveness for scroll-to-top button */
 @media screen and (max-width: 768px) {
   #scroll-to-top {
-    width: 35px;
-    height: 35px;
-    bottom: 20px;
-    right: 20px;
-    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 480px) {
   #scroll-to-top {
-    width: 32px;
-    height: 32px;
-    bottom: 15px;
-    right: 15px;
-    font-size: 12px;
+    width: 28px;
+    height: 28px;
+    bottom: 12px;
+    right: 12px;
+    font-size: 10px;
   }
 }
 
@@ -161,11 +161,11 @@ body.darknet-mode #scroll-to-top {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   #scroll-to-top {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     bottom: 15px;
     right: 15px;
-    font-size: 14px;
+    font-size: 12px;
   }
   
   html[dir="rtl"] #scroll-to-top {

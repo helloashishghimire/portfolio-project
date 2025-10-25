@@ -161,6 +161,23 @@
     cursor: pointer;
 }
 
+/* Mobile responsive download button */
+@media (max-width: 768px) {
+    .download-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        gap: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.3rem;
+    }
+}
+
 .download-button:hover {
     background: var(--accent-color);
     transform: translateY(-2px);

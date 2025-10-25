@@ -176,25 +176,28 @@ section::before {
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-/* Professional scrollbar styling */
+/* Hide scrollbar while keeping scroll functionality */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 0px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--background-color);
-    border-radius: 10px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: 10px;
-    border: 2px solid var(--background-color);
+    background: transparent;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5);
+/* For Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* For Internet Explorer and Edge */
+body {
+    -ms-overflow-style: none;
 }
 
 /* Animation classes */
