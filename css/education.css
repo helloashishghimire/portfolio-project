@@ -30,10 +30,21 @@
 .education-row {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     width: 100%;
-    max-width: 1000px;
-    margin-bottom: 2rem;
+    max-width: 1100px;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.education-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* University Row: Image Left, Content Right */
@@ -41,20 +52,42 @@
     flex-direction: row;
 }
 
+.university-row .education-image {
+    order: 1;
+}
+
+.university-row .education-item {
+    order: 2;
+}
+
 /* College Row: Content Left, Image Right */
 .college-row {
-    flex-direction: row-reverse;
+    flex-direction: row;
+}
+
+.college-row .education-item {
+    order: 1;
+}
+
+.college-row .education-image {
+    order: 2;
 }
 
 /* Education Images */
 .education-image {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     border: 3px solid var(--primary-color);
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.education-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .university-image {
@@ -67,15 +100,16 @@
 
 /* Education Item Content */
 .education-item {
-    flex: 0 0 60%;
+    flex: 0 0 65%;
     text-align: left;
-    padding: 1.5rem;
+    padding: 2rem;
     background: rgba(0, 212, 255, 0.05);
     border-radius: var(--border-radius);
     border-left: 4px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    max-width: 600px;
+    transition: all 0.3s ease;
 }
 
 .education-item h4 {

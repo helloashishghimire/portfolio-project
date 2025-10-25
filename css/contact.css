@@ -71,7 +71,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    background-image: url(./../images/download.jpg);
+    background-image: url('../images/download.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
