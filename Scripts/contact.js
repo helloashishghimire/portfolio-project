@@ -1,463 +1,391 @@
-import React, { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
-import emailjs from '@emailjs/browser';
-
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    subject: '',
-    message: '',
-    service: 'general'
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init("Z4u6SMrODAUc_3s04");
-  }, []);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setSubmitStatus('idle');
-
-  try {
-    const serviceID = 'service_6m2x21x';
-    const templateID = 'template_rvmi0ko';
-
-    // Get current time for the template
-    const now = new Date();
-    const timeString = now.toLocaleString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    });
-
-    // Get the selected service name
-    const selectedService = services.find(s => s.id === formData.service)?.name || 'General Inquiry';
-
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      company: formData.company || 'Not specified',
-      service: selectedService,
-      subject: formData.subject,
-      message: formData.message,
-      time: timeString // Add this for the timestamp in email
+// EmailJS Contact Form Integration
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const submitButton = document.getElementById('button');
+    
+    // Form state management
+    let isSubmitting = false;
+    let submitStatus = 'idle'; // 'idle', 'success', 'error'
+    
+    // Initialize EmailJS (already initialized in HTML)
+    // emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+    
+    // EmailJS configuration - Replace these with your actual values
+    const EMAILJS_CONFIG = {
+        serviceID: 'service_6m2x21x', // Replace with your service ID
+        templateID: 'template_rvmi0ko', // Replace with your template ID
+        publicKey: 'Z4u6SMrODAUc_3s04' // Replace with your public key
     };
-
-    await emailjs.send(serviceID, templateID, templateParams);
-
-    // Success handling and form reset remains the same
-    setSubmitStatus('success');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      subject: '',
-      message: '',
-      service: 'general'
-    });
-
-  } catch (err) {
-    console.error('EmailJS Error:', err);
-    setSubmitStatus('error');
-  } finally {
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus('idle'), 3000);
-  }
-};
-
-  const contactMethods = [
-    {
-      icon: 'fas fa-envelope',
-      title: 'Email',
-      value: 'amrkhaledv2171516@gmail.com',
-      link: 'mailto:amrkhaledv2171516@gmail.com',
-      description: 'Send me an email for general inquiries'
-    },
-    {
-      icon: 'fab fa-linkedin',
-      title: 'LinkedIn',
-      value: 'Amr El-Dahshan',
-      link: 'https://www.linkedin.com/in/amr-el-dahshan',
-      description: 'Connect with me professionally'
-    },
-    {
-      icon: 'fab fa-github',
-      title: 'GitHub',
-      value: 'Amr-Khaled-Ahmed',
-      link: 'https://github.com/Amr-Khaled-Ahmed',
-      description: 'Check out my open source projects'
+    
+    // Form validation
+    function validateForm(formData) {
+        const errors = [];
+        
+        if (!formData.name.trim()) {
+            errors.push('Name is required');
+        }
+        
+        if (!formData.email.trim()) {
+            errors.push('Email is required');
+        } else if (!isValidEmail(formData.email)) {
+            errors.push('Please enter a valid email address');
+        }
+        
+        if (!formData.subject.trim()) {
+            errors.push('Subject is required');
+        }
+        
+        if (!formData.message.trim()) {
+            errors.push('Message is required');
+        }
+        
+        return errors;
     }
-  ];
-
-  const platformProfiles = [
-    {
-      name: 'Hack The Box',
-      icon: 'fas fa-cube',
-      username: '@ZeroAccess121',
-      description: 'Cybersecurity training platform',
-      color: 'text-green-500'
-    },
-    {
-      name: 'TryHackMe',
-      icon: 'fas fa-flag',
-      username: '@ZeroAccess121',
-      description: 'Interactive cybersecurity learning',
-      color: 'text-red-500'
-    },
-  ];
-
-  const services = [
-    {
-      id: 'general',
-      name: 'General Inquiry',
-      description: 'General questions or discussions'
-    },
-    {
-      id: 'pentest',
-      name: 'Penetration Testing',
-      description: 'Web app and network security testing'
-    },
-    {
-      id: 'consultation',
-      name: 'Security Consultation',
-      description: 'Strategic security guidance and planning'
-    },
-    {
-      id: 'training',
-      name: 'Security Training',
-      description: 'Cybersecurity education and workshops'
-    },
-    {
-      id: 'research',
-      name: 'Security Research',
-      description: 'Vulnerability research collaboration'
+    
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
-  ];
-
-  return (
-    <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div data-aos="zoom-in" className="mb-8">
-            <div className="w-24 h-24 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-              <i className="fas fa-envelope text-3xl text-primary"></i>
-            </div>
-          </div>
-
-          <h1 data-aos="fade-up" className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
-            Get in Touch
-          </h1>
-
-          <p data-aos="fade-up" data-aos-delay="200" className="text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
-            Ready to enhance your organization's security posture? Let's discuss how I can help protect
-            your digital assets and strengthen your cybersecurity defenses.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Methods */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div data-aos="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Contact Information</h2>
-            <p className="text-text-secondary">Multiple ways to reach me for your cybersecurity needs</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactMethods.map((method, index) => (
-              <div
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group text-center"
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <i className={`${method.icon} text-2xl text-primary group-hover:text-white`}></i>
-                </div>
-                <h3 className="text-xl font-bold text-text-primary mb-2">{method.title}</h3>
-                <p className="text-text-secondary text-sm mb-4">{method.description}</p>
-                <a
-                  href={method.link}
-                  target={method.link.startsWith('http') ? '_blank' : '_self'}
-                  rel={method.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                  className="text-primary hover:text-accent transition-colors font-semibold break-all"
-                >
-                  {method.value}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Profiles */}
-      <section className="py-16 px-4 bg-accent/5">
-        <div className="max-w-6xl mx-auto">
-          <div data-aos="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Platform Profiles</h2>
-            <p className="text-text-secondary">Connect with me on cybersecurity platforms and communities</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {platformProfiles.map((platform, index) => (
-              <div
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group text-center"
-              >
-                <div className={`w-16 h-16 ${platform.color.replace('text-', 'bg-').replace('500', '500/10')} rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300`}>
-                  <i className={`${platform.icon} text-2xl ${platform.color}`}></i>
-                </div>
-                <h3 className="text-xl font-bold text-text-primary mb-2">{platform.name}</h3>
-                <p className="text-text-secondary text-sm mb-3">{platform.description}</p>
-                <p className={`${platform.color} font-semibold`}>{platform.username}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div data-aos="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Send me a Message</h2>
-            <p className="text-text-secondary">Fill out the form below and I'll get back to you as soon as possible</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-8 shadow-xl">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div data-aos="fade-up" data-aos-delay="100">
-                <label htmlFor="name" className="block text-sm font-semibold text-text-primary mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="Your full name"
-                />
-              </div>
-
-              <div data-aos="fade-up" data-aos-delay="200">
-                <label htmlFor="email" className="block text-sm font-semibold text-text-primary mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div data-aos="fade-up" data-aos-delay="300">
-                <label htmlFor="company" className="block text-sm font-semibold text-text-primary mb-2">
-                  Company/Organization
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="Your company name"
-                />
-              </div>
-
-              <div data-aos="fade-up" data-aos-delay="400">
-                <label htmlFor="service" className="block text-sm font-semibold text-text-primary mb-2">
-                  Service Interest *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                >
-                  {services.map((service) => (
-                    <option key={service.id} value={service.id}>
-                      {service.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="500" className="mb-6">
-              <label htmlFor="subject" className="block text-sm font-semibold text-text-primary mb-2">
-                Subject *
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                required
-                className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                placeholder="Brief description of your inquiry"
-              />
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="600" className="mb-8">
-              <label htmlFor="message" className="block text-sm font-semibold text-text-primary mb-2">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-                rows={6}
-                className="w-full px-4 py-3 bg-accent border border-border rounded-lg text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-vertical"
-                placeholder="Please provide details about your security needs, project requirements, or questions..."
-              />
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="700" className="text-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center space-x-3 mx-auto ${
-                  isSubmitting
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : submitStatus === 'success'
-                      ? 'bg-green-500'
-                      : submitStatus === 'error'
-                        ? 'bg-red-500'
-                        : 'bg-primary hover:bg-primary/90 hover:shadow-xl'
-                }`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+    
+    // Update button state
+    function updateButtonState(state) {
+        const button = submitButton;
+        button.disabled = state === 'loading';
+        
+        switch(state) {
+            case 'loading':
+                button.innerHTML = `
+                    <div class="loading-spinner"></div>
                     <span>Sending Message...</span>
-                  </>
-                ) : submitStatus === 'success' ? (
-                  <>
-                    <i className="fas fa-check"></i>
-                    <span>Success!</span>
-                  </>
-                ) : submitStatus === 'error' ? (
-                  <>
-                    <i className="fas fa-exclamation-circle"></i>
+                `;
+                button.classList.add('loading');
+                break;
+            case 'success':
+                button.innerHTML = `
+                    <i class="fas fa-check"></i>
+                    <span>Message Sent!</span>
+                `;
+                button.classList.add('success');
+                break;
+            case 'error':
+                button.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
                     <span>Try Again</span>
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-paper-plane"></i>
+                `;
+                button.classList.add('error');
+                break;
+            default:
+                button.innerHTML = `
+                    <i class="fas fa-paper-plane"></i>
                     <span>Send Message</span>
-                  </>
-                )}
-              </button>
-              {submitStatus === 'success' && (
-                <div className="mt-4 text-green-500 animate-fade-in">
-                  Your message has been sent successfully!
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="mt-4 text-red-500 animate-fade-in">
-                  Failed to send. Please try again.
-                </div>
-              )}
+                `;
+                button.classList.remove('loading', 'success', 'error');
+                button.style.display = 'flex';
+                button.style.alignItems = 'center';
+                button.style.justifyContent = 'center';
+                button.style.gap = '8px';
+        }
+    }
+    
+    // Show notification
+    function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotification = document.querySelector('.form-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `form-notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
             </div>
-          </form>
-        </div>
-      </section>
+        `;
+        
+        // Insert after form
+        contactForm.parentNode.insertBefore(notification, contactForm.nextSibling);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+    
+    // Handle form submission
+    async function handleSubmit(event) {
+        event.preventDefault();
+        
+        if (isSubmitting) return;
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            subject: document.getElementById('subject').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+        
+        // Validate form
+        const errors = validateForm(formData);
+        if (errors.length > 0) {
+            showNotification(errors.join(', '), 'error');
+            return;
+        }
+        
+        // Set submitting state
+        isSubmitting = true;
+        updateButtonState('loading');
+        
+        try {
+            // Get current time for the template
+            const now = new Date();
+            const timeString = now.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            
+            // Prepare template parameters
+            const templateParams = {
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
+                to_name: 'Ashish Ghimire',
+                reply_to: formData.email,
+                timestamp: timeString,
+                website: 'Portfolio Contact Form'
+            };
+            
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                EMAILJS_CONFIG.serviceID,
+                EMAILJS_CONFIG.templateID,
+                templateParams,
+                EMAILJS_CONFIG.publicKey
+            );
+            
+            console.log('EmailJS Response:', response);
+            
+            // Success
+            updateButtonState('success');
+            showNotification('Your message has been sent successfully! I\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                updateButtonState('idle');
+            }, 3000);
+            
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            
+            // Error handling
+            updateButtonState('error');
+            showNotification('Failed to send message. Please try again or contact me directly.', 'error');
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                updateButtonState('idle');
+            }, 3000);
+        } finally {
+            isSubmitting = false;
+        }
+    }
+    
+    // Add form event listener
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleSubmit);
+    }
+    
+    // Add input animations
+    const inputs = contactForm.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+        
+        // Check if input has value on load
+        if (input.value) {
+            input.parentElement.classList.add('focused');
+        }
+    });
+    
+    // Add typing effect to textarea
+    const messageTextarea = document.getElementById('message');
+    if (messageTextarea) {
+        messageTextarea.addEventListener('input', function() {
+            const charCount = this.value.length;
+            const maxChars = 1000;
+            
+            // Update character count if needed
+            let charCounter = this.parentElement.querySelector('.char-counter');
+            if (!charCounter) {
+                charCounter = document.createElement('div');
+                charCounter.className = 'char-counter';
+                this.parentElement.appendChild(charCounter);
+            }
+            
+            charCounter.textContent = `${charCount}/${maxChars}`;
+            charCounter.style.color = charCount > maxChars * 0.9 ? '#ff6b6b' : '#666';
+        });
+    }
+});
 
-      {/* Service Information */}
-      <section className="py-20 px-4 bg-accent/5">
-        <div className="max-w-6xl mx-auto">
-          <div data-aos="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Available Services</h2>
-            <p className="text-text-secondary">Comprehensive cybersecurity solutions tailored to your needs</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(1).map((service, index) => (
-              <div
-                key={service.id}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <h3 className="text-xl font-bold text-text-primary mb-3">{service.name}</h3>
-                <p className="text-text-secondary leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Response Time Information */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div data-aos="fade-up" className="bg-card border border-border rounded-2xl p-8 shadow-xl">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <i className="fas fa-clock text-2xl text-primary"></i>
-            </div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">Response Time</h2>
-            <p className="text-text-secondary leading-relaxed mb-6">
-              I typically respond to all inquiries within 24-48 hours. For urgent security matters,
-              please call directly for a faster response. All consultations begin with a free initial
-              assessment to understand your specific needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="flex items-center space-x-2 text-text-secondary">
-                <i className="fas fa-check-circle text-green-500"></i>
-                <span>Free Initial Consultation</span>
-              </div>
-              <div className="flex items-center space-x-2 text-text-secondary">
-                <i className="fas fa-shield-alt text-primary"></i>
-                <span>Confidential & Secure</span>
-              </div>
-              <div className="flex items-center space-x-2 text-text-secondary">
-                <i className="fas fa-handshake text-accent"></i>
-                <span>Professional Service</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-};
-
-export default Contact;
+// Add CSS for loading spinner and notifications
+const style = document.createElement('style');
+style.textContent = `
+    .loading-spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 8px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button.loading {
+        background-color: #6c757d;
+        cursor: not-allowed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    #contact-form button.success {
+        background-color: #28a745;
+        animation: successPulse 0.6s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    #contact-form button.error {
+        background-color: #dc3545;
+        animation: errorShake 0.6s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    @keyframes successPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes errorShake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+    }
+    
+    .form-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--card-background);
+        color: var(--text-color);
+        border-radius: 8px;
+        padding: 16px 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+        max-width: 400px;
+        border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+    }
+    
+    .form-notification.success {
+        border-left: 4px solid #28a745;
+    }
+    
+    .form-notification.error {
+        border-left: 4px solid #dc3545;
+    }
+    
+    .form-notification.info {
+        border-left: 4px solid #17a2b8;
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .notification-content i {
+        font-size: 18px;
+    }
+    
+    .form-notification.success .notification-content i {
+        color: #28a745;
+    }
+    
+    .form-notification.error .notification-content i {
+        color: #dc3545;
+    }
+    
+    .form-notification.info .notification-content i {
+        color: #17a2b8;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    .char-counter {
+        text-align: right;
+        font-size: 12px;
+        margin-top: 4px;
+        color: #666;
+    }
+    
+    .form-group.focused label {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+        .form-notification {
+            top: 10px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
+`;
+document.head.appendChild(style);

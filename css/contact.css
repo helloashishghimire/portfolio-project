@@ -132,47 +132,97 @@ body {
 }
 
 #contact-form {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: var(--element-spacing);
-    background: rgba(var(--card-background-rgb), 0.9);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(var(--card-background-rgb), 0.95), rgba(var(--card-background-rgb), 0.85));
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transform: perspective(1000px) rotateX(0deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+#contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 #contact-form:hover {
-    transform: perspective(1000px) rotateX(5deg);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
 }
 
 #contact-form label {
+    display: block;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--text-light);
-    transform: translateX(0);
-    transition: transform 0.3s ease;
+    margin-bottom: 8px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-#contact-form input:focus + label,
-#contact-form textarea:focus + label {
-    transform: translateX(10px);
-    color: var(--primary-color);
+#contact-form label::after {
+    content: '*';
+    color: #ff6b6b;
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#contact-form label.required::after {
+    opacity: 1;
 }
 
 #contact-form input,
 #contact-form textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid var(--card-border);
-    border-radius: var(--border-radius);
+    padding: 16px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-color);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
 }
 
@@ -180,27 +230,54 @@ body {
 #contact-form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(var(--primary-color-rgb), 0.6);
-    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 0 0 4px rgba(var(--primary-color-rgb), 0.1),
+        0 8px 25px rgba(var(--primary-color-rgb), 0.3);
+    transform: translateY(-2px);
+}
+
+#contact-form input:focus::placeholder,
+#contact-form textarea:focus::placeholder {
+    opacity: 0.7;
+    transform: translateY(-2px);
 }
 
 #contact-form textarea {
-    min-height: 150px;
+    min-height: 160px;
     resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+/* Floating label effect */
+.form-group.focused label {
+    color: var(--primary-color);
+    transform: translateY(-2px) scale(0.95);
+}
+
+.form-group.focused label::after {
+    opacity: 0.8;
 }
 
 #contact-form button {
-    padding: 12px 20px;
-    background-color: var(--primary-color);
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(var(--primary-color-rgb), 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
 }
 
 #contact-form button::before {
@@ -210,18 +287,57 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.6s;
+}
+
+#contact-form button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
 }
 
 #contact-form button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.6);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 35px rgba(var(--primary-color-rgb), 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 #contact-form button:hover::before {
     left: 100%;
+}
+
+#contact-form button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+#contact-form button:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 20px rgba(var(--primary-color-rgb), 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#contact-form button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#contact-form button:disabled::before,
+#contact-form button:disabled::after {
+    display: none;
 }
 
 /* Success animation */
