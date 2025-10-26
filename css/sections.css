@@ -200,7 +200,7 @@
     background-color: #1e1e2f; /* Fallback background color */
     background-image: 
         linear-gradient(rgba(30, 30, 47, 0.6), rgba(30, 30, 47, 0.7)),
-        url('../images/cybersecurity.webp');
+        url('../images/cybersecurity.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
