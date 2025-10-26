@@ -5,16 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Form state management
     let isSubmitting = false;
-    let submitStatus = 'idle'; // 'idle', 'success', 'error'
+    let submitStatus = 'idle'; 
     
-    // Initialize EmailJS (already initialized in HTML)
-    // emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+
     
-    // EmailJS configuration - Replace these with your actual values
+    // EmailJS configuration
     const EMAILJS_CONFIG = {
-        serviceID: 'service_6m2x21x', // Replace with your service ID
-        templateID: 'template_rvmi0ko', // Replace with your template ID
-        publicKey: 'Z4u6SMrODAUc_3s04' // Replace with your public key
+        serviceID: 'service_5xb7byu', 
+        templateID: 'template_8u581yp',
+        publicKey: 'hOVrxgkqLECqIRQC2' 
     };
     
     // Form validation
